@@ -31,8 +31,8 @@ mongoose.connect(
 app.use(
   session({
     secret: "Ferrari 488GTB",
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false
   })
 );
 
@@ -45,6 +45,7 @@ require("./config/passport")(passport);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
